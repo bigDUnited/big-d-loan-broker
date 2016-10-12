@@ -8,7 +8,7 @@ from flask_restful import Resource, Api
 
 def randit():
     if 1 == 1:
-        print "DSDS"
+        print("DSDS")
 
     return randint(1, 80)
 
