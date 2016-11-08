@@ -66,6 +66,14 @@ print counter
 a = b = c = 1
 print a,b,c
 
+#immutable array - if one variable changes all others assigned to it changes unless you initialize a new list with []
+a = b = c = [1,2]
+b.append(3)
+print "Immutable array: (all should be [1,2,3])",a,b,c
+b = [2,3]
+print "B will have a new list:",a,b,c
+
+
 a, b, c = 1, 2, "Java"
 print a,b,c
 
@@ -75,7 +83,7 @@ print a,b,c
 	# List
 	# Tuple
 	# Dictionary
-	
+
 str = 'Hello World!'
 
 print (str)          # Prints complete string
