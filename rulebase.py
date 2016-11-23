@@ -5,7 +5,7 @@ from random import randint
 from flask import Flask
 from flask_restful import Resource, Api
 
-class Bank(object):
+class RuleBase(object):
 
     def __init__(self, name, maxScore):
         self.name = name
@@ -25,10 +25,10 @@ def calculate(score, banks):
     return res
 
 banks = [
-    Bank("pepe", 20),
-    Bank("chulo", 40),
-    Bank("puta", 60),
-    Bank("madre", 70)
+    RuleBase("pepe", 200),
+    RuleBase("chulo", 400),
+    RuleBase("puta", 600),
+    RuleBase("madre", 700)
 ]
 
 def bankToJSON(bank):
