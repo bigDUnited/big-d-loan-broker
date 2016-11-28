@@ -1,0 +1,8 @@
+CREDIT_ENRICHER_QUEUE="credit_enricher_queue"
+BANK_ENRICHER_QUEUE="bank_enricher_queue"
+RECIPIENT_LIST_QUEUE="recipient_list_queue"
+XML_TRANSLATOR_QUEUE="xml_translator_queue"
+JSON_TRANSLATOR_QUEUE="json_translator_queue"
+NORMALIZER_QUEUE="normalizer_queue"
+AGGREGATOR_QUEUE="aggregator_queue"
+RESPONSE_QUEUE="response_queue"

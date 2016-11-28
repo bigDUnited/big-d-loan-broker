@@ -3,16 +3,15 @@
 import pika
 
 
-def publish_to_q(host, queue, routing, message):
+def publish_to_q(host, queue, message):
     connection = pika.BlockingConnection(pika.ConnectionParameters(
-                   'localhost'))
+                   host))
     channel = connection.channel()
     channel.queue_declare(queue=queue)
     channel.basic_publish(exchange='',
-                          routing_key=routing,
+                          routing_key=queue,
                           body=message)
-    print(" [x] Sent 'Hello World!'")
     connection.close()
 
 if __name__ == '__main__':
-    publish_to_q('localhost', 'hello', 'hello', 'Hello World!')
+    publish_to_q('localhost', 'hello', 'Hello World!')
