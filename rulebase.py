@@ -4,6 +4,7 @@ import json
 from random import randint
 from flask import Flask
 from flask_restful import Resource, Api
+from queue_names import *
 
 class RuleBase(object):
 
@@ -25,14 +26,14 @@ def calculate(score, banks):
     return res
 
 banks = [
-    RuleBase("pepe", 200),
-    RuleBase("chulo", 400),
-    RuleBase("puta", 600),
-    RuleBase("madre", 700)
+    RuleBase(DANSKEBANK_TRANSLATOR_QUEUE, 200),
+    RuleBase(NORDEA_TRANSLATOR_QUEUE, 400),
+    RuleBase(NYTKREDIT_TRANSLATOR_QUEUE, 600),
+    RuleBase(BDO_TRANSLATOR_QUEUE, 700)
 ]
 
 def bankToJSON(bank):
-    return json.dumps(bank.name)
+    return bank.name
 
 app = Flask(__name__)
 api = Api(app)

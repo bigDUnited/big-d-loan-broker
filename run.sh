@@ -11,6 +11,16 @@ python bank_enricher.py &
 proc+=("$!")
 python recipient.py &
 proc+=("$!")
+python danskebank_translator.py &
+proc+=("$!")
+python nordea_translator.py &
+proc+=("$!")
+python nytkredit_translator.py &
+proc+=("$!")
+python bdo_translator.py &
+proc+=("$!")
+
+
 python client.py
 
 sleep 2
