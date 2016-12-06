@@ -92,6 +92,12 @@ print (str[2:5])     # Prints characters starting from 3rd to 5th
 print (str[2:])      # Prints string starting from 3rd character
 print (str * 2)      # Prints string two times
 print (str + "TEST") # Prints concatenated string
+print (str[-4:-2])   # Print string counting backwards from the end
+
+#find out if substring is in string
+print("Hell" in str)
+print("hola" in str)
+
 
 #wait for user(\n - newline)
 raw_input("\n Press anything to exit.")
