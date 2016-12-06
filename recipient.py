@@ -19,7 +19,7 @@ def callback(ch, method, properties, body):
     del res["banks"]
     for t in TRANSLATORS:
         if t in m["banks"]:
-            publish_to_q("localhost", t, dumps(res))
+            publish_to_q("localhost", t, dumps(res), properties)
     
 
 consumer = Consumer("localhost", RECIPIENT_LIST_QUEUE)

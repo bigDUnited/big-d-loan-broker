@@ -11,7 +11,7 @@ def callback(ch, method, properties, body):
     response = requests.get(req)
     banks = response.json()
     m['banks'] = banks
-    publish_to_q("localhost", RECIPIENT_LIST_QUEUE, dumps(m))
+    publish_to_q("localhost", RECIPIENT_LIST_QUEUE, dumps(m), properties)
 
 
 consumer = Consumer("localhost", BANK_ENRICHER_QUEUE)
