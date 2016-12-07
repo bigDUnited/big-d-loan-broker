@@ -26,23 +26,24 @@ public class RuleBaseClient {
 
         RuleBaseInterface hello = service.getPort(RuleBaseInterface.class);
         
-        System.out.println("Hello : " + hello.getHelloWorldAsString("Boy"));
+        System.out.println("Request 1: " + hello.getBanksByCrediScoreJson(690));
+        System.out.println("Request 2: " + hello.getBanksByCrediScoreJson(550));
 
-        RuleBaseImplementation rbi = new RuleBaseImplementation();
-
-        int clientScore = 690;
-        System.out.println("Request 1");
-        ArrayList<Bank> liststring = rbi.getBanksByCrediScore(clientScore);
-        for (Bank s : liststring) {
-            System.out.println(s);
-        }
-        System.out.println("-----");
-        clientScore = 550;
-        System.out.println("Request 2");
-        liststring = rbi.getBanksByCrediScore(clientScore);
-        for (Bank s : liststring) {
-            System.out.println(s);
-        }
+//        RuleBaseImplementation rbi = new RuleBaseImplementation();
+//
+//        int clientScore = 690;
+//        System.out.println("Request 1");
+//        ArrayList<Bank> liststring = rbi.getBanksByCrediScore(clientScore);
+//        for (Bank s : liststring) {
+//            System.out.println(s);
+//        }
+//        System.out.println("-----");
+//        clientScore = 550;
+//        System.out.println("Request 2");
+//        liststring = rbi.getBanksByCrediScore(clientScore);
+//        for (Bank s : liststring) {
+//            System.out.println(s);
+//        }
 
     }
 

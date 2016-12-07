@@ -12,22 +12,16 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import webservice.logic.entity.Bank;
 
 //Service Endpoint Interface
-//Remote procedure call -its calling am ethod from another system
-// you ahve to tell the systme what method to run and params
+//Remote procedure call -its calling a method from another system
+//You have to tell the system what method to run and what to set as params
 @WebService
 @SOAPBinding(style = Style.RPC)
 public interface RuleBaseInterface {
-    
-    @WebMethod
-    String getHelloWorldAsString(String name);
 
     @WebMethod
     ArrayList<Bank> getBanksByCrediScore(int creditScore);
-    
+
     @WebMethod
-    ArrayList<Bank> getBanksByCrediScoreJson(int creditScore);
-    
-    @WebMethod
-    ArrayList<String> helloWorldList();
+    String getBanksByCrediScoreJson(int creditScore);
 
 }
