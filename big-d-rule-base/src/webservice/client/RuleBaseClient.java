@@ -12,7 +12,7 @@ public class RuleBaseClient {
 
     public static void main(String[] args) throws Exception {
 
-        URL url = new URL("http://localhost:9999/ws/hello?wsdl");
+        URL url = new URL("http://localhost:9999/ws/rule-base?wsdl");
 
         /* @args: 
          *  1st argument service URI - http:// + the package path to the implementation
@@ -26,8 +26,8 @@ public class RuleBaseClient {
 
         RuleBaseInterface hello = service.getPort(RuleBaseInterface.class);
         
-        System.out.println("Request 1: " + hello.getBanksByCrediScoreJson(690));
-        System.out.println("Request 2: " + hello.getBanksByCrediScoreJson(550));
+        System.out.println("Request 1: " + hello.getBanksByCreditScoreJson(690));
+        System.out.println("Request 2: " + hello.getBanksByCreditScoreJson(550));
 
 //        RuleBaseImplementation rbi = new RuleBaseImplementation();
 //

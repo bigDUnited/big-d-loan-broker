@@ -12,7 +12,7 @@ public class RuleBasePublisher {
      * Export command : wsimport -keep http://localhost:9999/ws/hello?wsdl
      */
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:9999/ws/hello", new RuleBaseImplementation());
+        Endpoint.publish("http://localhost:9999/ws/rule-base", new RuleBaseImplementation());
     }
 
 }

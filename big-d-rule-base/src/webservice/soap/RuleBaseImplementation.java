@@ -14,13 +14,13 @@ import webservice.logic.entity.Bank;
 public class RuleBaseImplementation implements RuleBaseInterface {
 
     @Override
-    public ArrayList<Bank> getBanksByCrediScore(int creditScore) {
+    public ArrayList<Bank> getBanksByCreditScore(int creditScore) {
         Controller control = new Controller();
         return control.getBanksByCrediScore(creditScore);
     }
 
     @Override
-    public String getBanksByCrediScoreJson(int creditScore) {
+    public String getBanksByCreditScoreJson(int creditScore) {
         Controller control = new Controller();
         return new Gson().toJson(control.getBanksByCrediScore(creditScore));
     }

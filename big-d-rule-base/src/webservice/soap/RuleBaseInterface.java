@@ -19,9 +19,9 @@ import webservice.logic.entity.Bank;
 public interface RuleBaseInterface {
 
     @WebMethod
-    ArrayList<Bank> getBanksByCrediScore(int creditScore);
+    ArrayList<Bank> getBanksByCreditScore(int creditScore);
 
     @WebMethod
-    String getBanksByCrediScoreJson(int creditScore);
+    String getBanksByCreditScoreJson(int creditScore);
 
 }
