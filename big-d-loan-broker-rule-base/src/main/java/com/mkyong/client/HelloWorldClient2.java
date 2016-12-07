@@ -1,17 +1,16 @@
 package com.mkyong.client;
 
-import testingwsimport.com.mkyong.ws.HelloWorldImplService;
-import testingwsimport.com.mkyong.ws.HelloWorld;
+import testingwsimport.webservice.soap.RuleBaseImplementationService;
+import testingwsimport.webservice.soap.RuleBaseInterface;
 
 public class HelloWorldClient2 {
 
     public static void main(String[] args) {
 
-        HelloWorldImplService helloService = new HelloWorldImplService();
-        HelloWorld hello = helloService.getHelloWorldImplPort();
+        RuleBaseImplementationService helloService = new RuleBaseImplementationService();
+        RuleBaseInterface rbi = helloService.getRuleBaseImplementationPort();
 
-        System.out.println(hello.getHelloWorldAsString("Secondary Client"));
-
+        System.out.println(rbi.getHelloWorldAsString("Secondary Client"));
     }
 
 }

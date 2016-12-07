@@ -1,9 +1,12 @@
 package com.mkyong.client;
 
 import java.net.URL;
+import java.util.ArrayList;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import com.mkyong.ws.HelloWorld;
+import webservice.logic.entity.Bank;
+import webservice.soap.RuleBaseImplementation;
+import webservice.soap.RuleBaseInterface;
 
 public class HelloWorldClient {
 
@@ -11,15 +14,33 @@ public class HelloWorldClient {
 
         URL url = new URL("http://localhost:9999/ws/hello?wsdl");
 
-        //1st argument service URI, refer to wsdl document above
-        //2nd argument is service name, refer to wsdl document above
-        QName qname = new QName("http://ws.mkyong.com/", "HelloWorldImplService");
+        /* @args: 
+         *  1st argument service URI - http:// + the package path to the implementation
+         *      but switched eg: 1/2 -> 2/1 OR 1/2/3 -> 3/1/2.
+         *  2nd argument is service name - the name of the webservice which implements
+         *      the interface + "Service" at the end of the name.
+         */
+        QName qname = new QName("http://soap.webservice/", "RuleBaseImplementationService");
 
         Service service = Service.create(url, qname);
 
-        HelloWorld hello = service.getPort(HelloWorld.class);
+        RuleBaseInterface hello = service.getPort(RuleBaseInterface.class);
 
-        System.out.println(hello.getHelloWorldAsString("Basic Client"));
+        RuleBaseImplementation rbi = new RuleBaseImplementation();
+
+        int clientScore = 690;
+        System.out.println("Request 1");
+        ArrayList<Bank> liststring = rbi.getBanksByCrediScore(clientScore);
+        for (Bank s : liststring) {
+            System.out.println(s);
+        }
+        System.out.println("-----");
+        clientScore = 550;
+        System.out.println("Request 2");
+        liststring = rbi.getBanksByCrediScore(clientScore);
+        for (Bank s : liststring) {
+            System.out.println(s);
+        }
 
     }
 
