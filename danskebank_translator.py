@@ -3,7 +3,6 @@ from rmqPublish import publish_to_bank
 from queue_names import *
 from json import loads
 import translators as tr
-import pika
 
 
 def on_exchange(ch, method, properties, body):
