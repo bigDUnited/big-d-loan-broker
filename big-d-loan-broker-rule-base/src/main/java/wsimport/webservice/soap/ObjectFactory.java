@@ -1,5 +1,5 @@
 
-package testingwsimport.webservice.soap;
+package wsimport.webservice.soap;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

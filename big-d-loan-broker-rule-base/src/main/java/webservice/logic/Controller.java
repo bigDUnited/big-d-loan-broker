@@ -1,7 +1,6 @@
 package webservice.logic;
 
 import java.util.ArrayList;
-import java.util.List;
 import webservice.logic.entity.Bank;
 import webservice.logic.entity.Rank;
 import webservice.logic.utils.RanksLevels;

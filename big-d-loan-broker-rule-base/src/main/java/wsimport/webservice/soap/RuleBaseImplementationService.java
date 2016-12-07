@@ -1,5 +1,5 @@
 
-package testingwsimport.webservice.soap;
+package wsimport.webservice.soap;
 
 import java.net.MalformedURLException;
 import java.net.URL;

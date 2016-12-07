@@ -1,5 +1,5 @@
 
-package testingwsimport.webservice.soap;
+package wsimport.webservice.soap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
