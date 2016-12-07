@@ -19,27 +19,13 @@ public class Controller {
     }
 
     private void loadBanks() {
-        banksList.add(new Bank("Danske Bank", new int[]{RanksLevels.EXCELLENT_CS,
+        banksList.add(new Bank("danskebank_translator_queue", new int[]{RanksLevels.EXCELLENT_CS,
             RanksLevels.GOOD_CS}));
-        banksList.add(new Bank("Nordea", new int[]{RanksLevels.EXCELLENT_CS,
-            RanksLevels.GOOD_CS}));
-        banksList.add(new Bank("Jyske Bank", new int[]{RanksLevels.EXCELLENT_CS,
-            RanksLevels.GOOD_CS, RanksLevels.AVERAGE_CS}));
-        banksList.add(new Bank("Nykredit Bank", new int[]{RanksLevels.EXCELLENT_CS,
-            RanksLevels.GOOD_CS, RanksLevels.AVERAGE_CS}));
-        banksList.add(new Bank("Syd Bank", new int[]{RanksLevels.GOOD_CS, RanksLevels.AVERAGE_CS,
+        banksList.add(new Bank("nordea_translator_queue", new int[]{RanksLevels.GOOD_CS, RanksLevels.AVERAGE_CS,
             RanksLevels.POOR_CS}));
-        banksList.add(new Bank("FIH Erhversbank", new int[]{RanksLevels.GOOD_CS,
-            RanksLevels.AVERAGE_CS, RanksLevels.POOR_CS}));
-        banksList.add(new Bank("Spar Nord Bank", new int[]{RanksLevels.AVERAGE_CS,
+        banksList.add(new Bank("nytkredit_translator_queue", new int[]{RanksLevels.AVERAGE_CS,
             RanksLevels.POOR_CS, RanksLevels.BAD_CS}));
-        banksList.add(new Bank("Arbejernes Landsbank", new int[]{RanksLevels.AVERAGE_CS,
-            RanksLevels.POOR_CS, RanksLevels.BAD_CS}));
-        banksList.add(new Bank("Alm Brand Bank", new int[]{RanksLevels.POOR_CS,
-            RanksLevels.BAD_CS, RanksLevels.MISERABLE_CS}));
-        banksList.add(new Bank("Vestjysk Bank", new int[]{RanksLevels.POOR_CS,
-            RanksLevels.BAD_CS, RanksLevels.MISERABLE_CS}));
-        banksList.add(new Bank("Leasing Fyn Bank A/S", new int[]{RanksLevels.POOR_CS,
+        banksList.add(new Bank("bdo_translator_queue", new int[]{RanksLevels.POOR_CS,
             RanksLevels.BAD_CS, RanksLevels.MISERABLE_CS}));
 
     }
