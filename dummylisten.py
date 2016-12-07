@@ -9,6 +9,6 @@ import translators as tr
 def callback(ch, method, properties, body):
     print body
 
-consumer = Consumer("datdb.cphbusiness.dk", "danskebank")
+consumer = Consumer("datdb.cphbusiness.dk", "result")
 consumer.on_receive = callback
 consumer.consume()

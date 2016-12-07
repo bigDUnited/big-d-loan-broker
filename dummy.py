@@ -16,5 +16,5 @@ publish_to_q(
     json.dumps(message),
     pika.BasicProperties(
         correlation_id="12399942",
-        reply_to="danskebank",
+        reply_to="result",
     ))
