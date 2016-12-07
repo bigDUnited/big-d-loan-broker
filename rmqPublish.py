@@ -3,6 +3,25 @@
 import pika
 
 
+def publish_to_bank(host, exchange, message, properties):
+    exchange_name = ""
+    connection = pika.BlockingConnection(pika.ConnectionParameters(
+                   host))
+    channel = connection.channel()
+
+    channel.exchange_declare(
+        exchange=exchange,
+        exchange_type='fanout',
+    )
+
+    channel.basic_publish(exchange=exchange,
+                          routing_key="",
+                          body=message,
+                          properties=properties)
+    connection.close()
+
+
+
 def publish_to_q(host, queue, message, properties):
     connection = pika.BlockingConnection(pika.ConnectionParameters(
                    host))

@@ -5,8 +5,8 @@ import pika
 
 message = {
     "ssn": "123456-3212", #social security number
-    "amount": "300", #crowns
-    "duration": "60", #days
+    "amount": "3000", #crowns
+    "duration": "7000", #days
     "timeout" : "900", #seconds
     "score": "3000",
 }

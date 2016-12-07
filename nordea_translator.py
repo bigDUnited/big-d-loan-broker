@@ -8,7 +8,7 @@ import requests
 def callback(ch, method, properties, body):
     m = loads(body)
     
-    print ch, m
+    print "Nordea: ", m
     
 
 consumer = Consumer("localhost", NORDEA_TRANSLATOR_QUEUE)

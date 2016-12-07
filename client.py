@@ -9,6 +9,7 @@ message = {
     "duration": "60", #days
     "timeout" : "900" #seconds
 }
+
 publish_to_q(
     'localhost',
     CREDIT_ENRICHER_QUEUE,

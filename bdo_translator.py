@@ -8,7 +8,7 @@ import requests
 def callback(ch, method, properties, body):
     m = loads(body)
     
-    print ch, m
+    print "BDO: ", m
     
 
 consumer = Consumer("localhost", BDO_TRANSLATOR_QUEUE)

@@ -6,9 +6,9 @@ def dump_danskebank(message):
     del res["amount"]
     res["loanDuration"] = int(res["duration"])
     del res["duration"]
-    res["creditScore"] = int(res["score"])
     del res["score"]
     res["ssn"] = long("".join(res["ssn"].split("-")))
+    del res["timeout"]
     return json.dumps(res)
 
 def load_danskebank(message):
