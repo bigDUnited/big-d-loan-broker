@@ -26,8 +26,8 @@ public class RuleBaseClient {
 
         RuleBaseInterface hello = service.getPort(RuleBaseInterface.class);
         
-        System.out.println("Request 1: " + hello.getBanksByCreditScoreJson(690));
-        System.out.println("Request 2: " + hello.getBanksByCreditScoreJson(550));
+        System.out.println("Local-Remote Request 1: " + hello.getBanksByCreditScoreJson(690));
+        System.out.println("Local-Remote Request 2: " + hello.getBanksByCreditScoreJson(550));
 
     }
 
