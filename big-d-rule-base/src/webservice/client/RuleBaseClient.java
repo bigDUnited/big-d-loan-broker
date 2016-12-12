@@ -1,11 +1,8 @@
 package webservice.client;
 
 import java.net.URL;
-import java.util.ArrayList;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import webservice.logic.entity.Bank;
-import webservice.soap.RuleBaseImplementation;
 import webservice.soap.RuleBaseInterface;
 
 public class RuleBaseClient {

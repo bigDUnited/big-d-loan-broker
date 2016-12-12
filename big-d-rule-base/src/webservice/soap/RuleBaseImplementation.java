@@ -1,14 +1,7 @@
 package webservice.soap;
 
-import com.google.gson.Gson;
-import com.sun.org.apache.xerces.internal.xni.XMLString;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
