@@ -29,22 +29,6 @@ public class RuleBaseClient {
         System.out.println("Request 1: " + hello.getBanksByCreditScoreJson(690));
         System.out.println("Request 2: " + hello.getBanksByCreditScoreJson(550));
 
-//        RuleBaseImplementation rbi = new RuleBaseImplementation();
-//
-//        int clientScore = 690;
-//        System.out.println("Request 1");
-//        ArrayList<Bank> liststring = rbi.getBanksByCrediScore(clientScore);
-//        for (Bank s : liststring) {
-//            System.out.println(s);
-//        }
-//        System.out.println("-----");
-//        clientScore = 550;
-//        System.out.println("Request 2");
-//        liststring = rbi.getBanksByCrediScore(clientScore);
-//        for (Bank s : liststring) {
-//            System.out.println(s);
-//        }
-
     }
 
 }

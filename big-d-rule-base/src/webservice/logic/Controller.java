@@ -52,7 +52,7 @@ public class Controller {
 
         if (chosenRank > 0) {
             for (int x = 0; x < banksList.size(); x++) {
-                int[] currRanksList = banksList.get(x).getRanks();
+                int[] currRanksList = banksList.get(x).getRankElem();
                 for (int y = 0; y < currRanksList.length; y++) {
                     if (currRanksList[y] == chosenRank) {
                         shareableList.add(banksList.get(x));

@@ -1,28 +1,43 @@
 package webservice.logic.entity;
 
 import java.util.Arrays;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Bank {
 
-    private final String name;
-    private final int[] ranks;
+    private  String name;
+    private  int[] rankElem;
 
-    public Bank(String name, int[] ranks) {
+    public Bank() {
+        this.name = null;
+        this.rankElem = null;
+    }
+
+    public Bank(String name, int[] rankElem) {
         this.name = name;
-        this.ranks = ranks;
+        this.rankElem = rankElem;
     }
 
     public String getName() {
         return name;
     }
 
-    public int[] getRanks() {
-        return ranks;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public int[] getRankElem() {
+        return rankElem;
+    }
+
+    public void setRankElem(int[] rankElem) {
+        this.rankElem = rankElem;
+    }
+    
     @Override
     public String toString() {
-        return "Bank{" + "name=" + name + ", ranks=" + Arrays.toString(ranks) + '}';
+        return "Bank{" + "name=" + name + ", ranks=" + Arrays.toString(rankElem) + '}';
     }
 
 }
