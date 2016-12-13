@@ -19,6 +19,8 @@ python nytkredit_translator.py &
 proc+=("$!")
 python bdo_translator.py &
 proc+=("$!")
+python dummylisten.py &
+proc+=("$!")
 
 
 python client.py

@@ -6,11 +6,12 @@ import translators as tr
 
 
 def callback(ch, method, properties, body):
-    print "nordea bank translator : ", body
+    m = loads(body)
+    result = tr.dumps(m, "nordea")
     publish_to_bank(
         "datdb.cphbusiness.dk",
         'cphbusiness.bankXML',
-        body,
+        result,
         properties)
 
     

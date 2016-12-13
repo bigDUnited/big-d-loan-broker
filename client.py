@@ -15,4 +15,5 @@ publish_to_q(
     CREDIT_ENRICHER_QUEUE,
     json.dumps(message),
     pika.BasicProperties(
-        correlation_id="12399942"))
+        correlation_id="12399942",
+        reply_to="result",))
