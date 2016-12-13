@@ -15,7 +15,11 @@ def dump_danskebank(message):
     return json.dumps(res)
 
 def load_danskebank(message):
-    pass
+    res = json.loads(message)
+    res["interest"] = float(res["interestRate"])
+    del res["interestRate"]
+    res["ssn"] = "{}-{}".format(res["ssn"][:6], res["ssn"][6:])
+    return res
 
 def dump_nordea(message):
     res = ET.Element('LoanRequest')
