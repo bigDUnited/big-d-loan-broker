@@ -1,9 +1,21 @@
+"""
+Message format translation utilities.
+"""
 import json
 import datetime
 import xml.etree.ElementTree as ET
 from datetime import date
 
 def dump_danskebank(message):
+    """
+    Example input: {
+     "ssn": "123456-3212",
+     "amount": "3000",
+     "duration": "7000", 
+     "timeout" : "900",
+     "score": "3000",
+    }
+    """
     res = message
     res["loanAmount"] = float(res["amount"])
     del res["amount"]
@@ -15,6 +27,9 @@ def dump_danskebank(message):
     return json.dumps(res)
 
 def load_danskebank(message):
+    """
+    Example input: {"interestRate":5.5,"ssn":1234563212}
+    """
     res = json.loads(message)
     res["interest"] = float(res["interestRate"])
     del res["interestRate"]
@@ -22,6 +37,15 @@ def load_danskebank(message):
     return res
 
 def dump_nordea(message):
+    """
+    Example input: {
+     "ssn": "123456-3212",
+     "amount": "3000",
+     "duration": "7000", 
+     "timeout" : "900",
+     "score": "3000",
+    }
+    """
     res = ET.Element('LoanRequest')
     ssn = ET.SubElement(res, 'ssn')
     ssn.text = "".join(message["ssn"].split("-"))
@@ -38,15 +62,27 @@ def dump_nordea(message):
 def load_nordea(message):
     pass
 
-
+"""
+Tables for bi-directional translation.
+Each translation type should have a "dump" and a "load"
+that should point to corresponding translation functions
+that take a message and return a translated message.
+"""
 translator_types = {
     "danskebank" : {"dump": dump_danskebank, "load": load_danskebank},
     "nordea" : {"dump": dump_nordea, "load": load_nordea},
 }
 
 def dumps(message, type):
+    """
+    Transforms internal messages to external formats for usage with
+    third-party services.
+    """
     return translator_types[type]["dump"](message)
 
 def loads(message, type):
+    """
+    Transform external message formats to internal message format.
+    """
     return translator_types[type]["load"](message)
 
