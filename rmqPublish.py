@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+RabbitMQ publish utilities.
+"""
 import pika
 
 
 def publish_to_bank(host, exchange, message, properties):
+    """
+    Publish to a third-party bank. Uses an exchange name.
+    
+    """
     exchange_name = ""
     connection = pika.BlockingConnection(pika.ConnectionParameters(
                    host))
@@ -23,6 +30,8 @@ def publish_to_bank(host, exchange, message, properties):
 
 
 def publish_to_q(host, queue, message, properties):
+    """
+    """
     connection = pika.BlockingConnection(pika.ConnectionParameters(
                    host))
     channel = connection.channel()
