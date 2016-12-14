@@ -1,3 +1,6 @@
+"""
+Constants for all queue names used in the project.
+"""
 CREDIT_ENRICHER_QUEUE="credit_enricher_queue"
 BANK_ENRICHER_QUEUE="bank_enricher_queue"
 RECIPIENT_LIST_QUEUE="recipient_list_queue"

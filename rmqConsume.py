@@ -24,7 +24,9 @@ class Consumer(object):
         self.on_receive = None
 
     def consume(self):
-        """Start consuming. This method blocks."""
+        """
+        Start consuming. This method blocks.
+        """
         connection = pika.BlockingConnection(pika.ConnectionParameters(
             host=self.host))
         channel = connection.channel()

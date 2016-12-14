@@ -1,3 +1,6 @@
+"""
+Dummy consumer for testing.
+"""
 from rulebase import RuleBase
 from rmqConsume import Consumer
 from rmqPublish import publish_to_q

@@ -1,3 +1,7 @@
+"""
+Enriches a message with available banks by calling
+a rule base service.
+"""
 from rulebase import RuleBase
 from rmqConsume import Consumer
 from rmqPublish import publish_to_q

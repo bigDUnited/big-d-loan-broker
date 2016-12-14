@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Marek had to learn python at some point. Good for him. 
+"""
 
 #printline
 print "Hello Python!"

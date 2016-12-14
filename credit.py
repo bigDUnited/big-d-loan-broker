@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Dummy service that provides a random credit score. 
+"""
 import json
 from random import randint
 from flask import Flask
@@ -10,7 +13,7 @@ def randit():
     if 1 == 1:
         print "DSDS"
 
-    return randint(1, 80)
+    return randint(500, 1000)
 
 app = Flask(__name__)
 api = Api(app)

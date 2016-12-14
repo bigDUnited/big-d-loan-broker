@@ -9,7 +9,7 @@ import pika
 def publish_to_bank(host, exchange, message, properties):
     """
     Publish to a third-party bank. Uses an exchange name.
-    
+    properties should be a pika properties object.
     """
     exchange_name = ""
     connection = pika.BlockingConnection(pika.ConnectionParameters(
@@ -31,6 +31,9 @@ def publish_to_bank(host, exchange, message, properties):
 
 def publish_to_q(host, queue, message, properties):
     """
+    Publishing function for the internal queues.
+    A host address has to be provided as well as queue name to push to.
+    properties should be a pika properties object.
     """
     connection = pika.BlockingConnection(pika.ConnectionParameters(
                    host))

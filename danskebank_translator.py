@@ -1,3 +1,6 @@
+"""
+Translator node for Danske Bank(bankJSON).
+"""
 from rmqConsume import Consumer
 from rmqPublish import publish_to_bank
 from queue_names import *

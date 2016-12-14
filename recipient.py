@@ -1,3 +1,6 @@
+"""
+Node that ensures that a message is sent to all relevant translators.
+"""
 from rulebase import RuleBase
 from rmqConsume import Consumer
 from rmqPublish import publish_to_q
