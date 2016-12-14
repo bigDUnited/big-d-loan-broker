@@ -1,8 +1,8 @@
 """
 Dummy publisher.
 """
-from rmqPublish import publish_to_q
-from queue_names import *
+from broker.rmqPublish import publish_to_q
+from broker.queue_names import *
 import json
 import pika
 

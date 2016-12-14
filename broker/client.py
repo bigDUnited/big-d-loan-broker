@@ -1,8 +1,8 @@
 """
 Entry point to project. Sends a single message to be processed.
 """
-from broker.rmqPublish import publish_to_q
-from broker.queue_names import CREDIT_ENRICHER_QUEUE
+from rmqPublish import publish_to_q
+from queue_names import CREDIT_ENRICHER_QUEUE
 import json
 import pika
 
