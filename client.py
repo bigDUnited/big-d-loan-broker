@@ -1,8 +1,11 @@
 """
 Entry point to project. Sends a single message to be processed.
+
+Correlation id is 8 characters. 
 """
+
 from broker.rmqPublish import publish_to_q
-from broker.queue_names import CREDIT_ENRICHER_QUEUE
+from broker.queue_names import CREDIT_ENRICHER_QUEUE, NORMALIZER_QUEUE
 import json
 import pika
 
@@ -19,4 +22,4 @@ publish_to_q(
     json.dumps(message),
     pika.BasicProperties(
         correlation_id="12399942",
-        reply_to="result",))
+        reply_to=NORMALIZER_QUEUE,))

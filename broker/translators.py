@@ -60,7 +60,19 @@ def dump_nordea(message):
     return ET.tostring(res)
 
 def load_nordea(message):
-    pass
+    """
+    Example input: 
+    <LoanResponse>
+       <interestRate>4.5600000000000005</interestRate>
+       <ssn>1234563212</ssn>
+    </LoanResponse>
+    """
+    res = {}
+    root = ET.fromstring(message)
+    res["interest"] = float(root.find("interestRate").text)
+    ssn = root.find("ssn").text
+    res["ssn"] = "{}-{}".format(ssn[:6], ssn[6:])
+    return res
 
 """
 Tables for bi-directional translation.
@@ -86,3 +98,12 @@ def loads(message, type):
     """
     return translator_types[type]["load"](message)
 
+
+if __name__ == '__main__':
+    print load_nordea(
+        """    
+       <LoanResponse>
+        <interestRate>4.5600000000000005</interestRate>
+        <ssn>1234563212</ssn>
+       </LoanResponse>
+        """)

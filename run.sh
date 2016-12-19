@@ -20,7 +20,7 @@ python broker/nytkredit_translator.py &
 proc+=("$!")
 python broker/bdo_translator.py &
 proc+=("$!")
-python dummylisten.py &
+python broker/normalizer.py &
 proc+=("$!")
 
 

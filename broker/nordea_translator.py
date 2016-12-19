@@ -11,6 +11,8 @@ import translators as tr
 def callback(ch, method, properties, body):
     m = loads(body)
     result = tr.dumps(m, "nordea")
+    properties.correlation_id += "nordea"
+    print "nordea bank translator: ", result
     publish_to_bank(
         "datdb.cphbusiness.dk",
         'cphbusiness.bankXML',

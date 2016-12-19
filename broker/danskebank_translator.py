@@ -7,14 +7,10 @@ from queue_names import *
 from json import loads
 import translators as tr
 
-
-def on_exchange(ch, method, properties, body):
-    print "hello!!!" + body
-
-
 def callback(ch, method, properties, body):
     m = loads(body)
     result = tr.dumps(m, "danskebank")
+    properties.correlation_id += "danskebank"
     print "danske bank translator: ", result
     publish_to_bank(
         "datdb.cphbusiness.dk",
