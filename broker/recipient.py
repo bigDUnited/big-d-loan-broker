@@ -1,3 +1,10 @@
+"""
+Node that ensures that a message is sent to all relevant translators.
+
+It will also send the original request to the awaiting normalizer
+so that it schedules a timeout and prepares to get all bank responses
+in the given timeframe.
+"""
 from rulebase import RuleBase
 from rmqConsume import Consumer
 from rmqPublish import publish_to_q
@@ -17,10 +24,14 @@ def callback(ch, method, properties, body):
     m = loads(body)
     res = loads(body)
     del res["banks"]
+    final_message = dumps(res)
+    publish_to_q("datdb.cphbusiness.dk",
+                 NORMALIZER_QUEUE,
+                 body,
+                 properties)
     for t in TRANSLATORS:
         if t in m["banks"]:
-            publish_to_q("localhost", t, dumps(res), properties)
-    
+            publish_to_q("localhost", t, final_message, properties)    
 
 consumer = Consumer("localhost", RECIPIENT_LIST_QUEUE)
 consumer.on_receive = callback

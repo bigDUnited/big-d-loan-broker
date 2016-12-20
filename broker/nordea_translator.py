@@ -1,3 +1,6 @@
+"""
+Translator node for Nordea(bankXML).
+"""
 from rmqConsume import Consumer
 from rmqPublish import publish_to_bank
 from queue_names import *
@@ -6,11 +9,14 @@ import translators as tr
 
 
 def callback(ch, method, properties, body):
-    print "nordea bank translator : ", body
+    m = loads(body)
+    result = tr.dumps(m, "nordea")
+    properties.correlation_id += "nordea"
+    print "nordea bank translator: ", result
     publish_to_bank(
         "datdb.cphbusiness.dk",
         'cphbusiness.bankXML',
-        body,
+        result,
         properties)
 
     

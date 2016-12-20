@@ -1,23 +1,26 @@
 #!/bin/bash
+#Run the entire project.
 p=$(ps aux | grep rulebase | head -n 1 | cut -f 4 -d' ')
 kill -9 $p
 proc=()
-python rulebase.py &
+python broker/rulebase.py &
 ps aux | grep rulebase | head -n 1
 proc+=("$!")
-python creditscore_enricher.py &
+python broker/creditscore_enricher.py &
 proc+=("$!")
-python bank_enricher.py &
+python broker/bank_enricher.py &
 proc+=("$!")
-python recipient.py &
+python broker/recipient.py &
 proc+=("$!")
-python danskebank_translator.py &
+python broker/danskebank_translator.py &
 proc+=("$!")
-python nordea_translator.py &
+python broker/nordea_translator.py &
 proc+=("$!")
-python nytkredit_translator.py &
+python broker/nytkredit_translator.py &
 proc+=("$!")
-python bdo_translator.py &
+python broker/bdo_translator.py &
+proc+=("$!")
+python broker/normalizer.py &
 proc+=("$!")
 
 

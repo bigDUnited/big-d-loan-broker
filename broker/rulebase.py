@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Deprecated! Implementation of rule base. 
+Calculates a list of banks available for a
+certain credit score wrapped in a REST service.
+"""
 import json
 from random import randint
 from flask import Flask
@@ -7,6 +12,7 @@ from flask_restful import Resource, Api
 from queue_names import *
 
 class RuleBase(object):
+    """A data object that keeps a single rule."""
 
     def __init__(self, name, maxScore):
         self.name = name
@@ -19,6 +25,7 @@ class RuleBase(object):
         return self.__str__()
 
 def calculate(score, banks):
+    """Calculate list of banks that are available for given score."""
     res = []
     for bank in banks:
         if bank.maxScore <= score:
@@ -33,17 +40,23 @@ banks = [
 ]
 
 def bankToJSON(bank):
+    """Return a bank json representation"""
     return bank.name
 
 app = Flask(__name__)
+
+
 api = Api(app)
 
-class HelloWorld(Resource):
+class ScoreService(Resource):
     def get(self, score):
+        """
+        Get banks by score service.
+        """
         res = map(bankToJSON, calculate(int(score), banks))
         return res
 
-api.add_resource(HelloWorld, '/score/<int:score>')
+api.add_resource(ScoreService, '/score/<int:score>')
 
 if __name__ == '__main__':
     app.run(debug=True, port=3001)

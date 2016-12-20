@@ -1,3 +1,7 @@
+"""
+Node that receives initial message and enriches it with a credit from
+the credit score service. 
+"""
 from rmqConsume import Consumer
 from rmqPublish import publish_to_q
 from creditapi import getCreditScore

@@ -1,5 +1,8 @@
-from rmqPublish import publish_to_q
-from queue_names import *
+"""
+Dummy publisher.
+"""
+from broker.rmqPublish import publish_to_q
+from broker.queue_names import *
 import json
 import pika
 

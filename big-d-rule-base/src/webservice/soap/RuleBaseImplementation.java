@@ -1,13 +1,16 @@
 package webservice.soap;
 
-import com.google.gson.Gson;
+import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 import javax.jws.WebService;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.namespace.QName;
 import webservice.logic.Controller;
 import webservice.logic.entity.Bank;
+import webservice.logic.entity.RuleBaseResponse;
 
 //Service Implementation
 @WebService(endpointInterface = "webservice.soap.RuleBaseInterface")
@@ -21,8 +24,33 @@ public class RuleBaseImplementation implements RuleBaseInterface {
 
     @Override
     public String getBanksByCreditScoreJson(int creditScore) {
-        Controller control = new Controller();
-        return new Gson().toJson(control.getBanksByCrediScore(creditScore));
-    }
+        String xmlString = null;
 
+        Controller control = new Controller();
+        ArrayList<Bank> banks = control.getBanksByCrediScore(creditScore);
+
+        RuleBaseResponse rbr = new RuleBaseResponse(banks);
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(RuleBaseResponse.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            //Create array of objects based on RuleBase structure
+            JAXBElement<RuleBaseResponse> je2 = new JAXBElement(
+                    new QName("RuleBaseList"), RuleBaseResponse.class, rbr);
+
+            //jaxbMarshaller.marshal(customer, file);
+            StringWriter sw = new StringWriter();
+            jaxbMarshaller.marshal(je2, sw);
+            xmlString = sw.toString();
+
+        } catch (JAXBException e) {
+            return "Internal server error : " + e;
+        }
+
+        return xmlString;
+    }
 }
