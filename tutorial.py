@@ -16,7 +16,7 @@ marek = False
 if marek:
 	#print all available commands with the object
 	print dir(fun)
-elif marek == 1:
+elif marek != 1:
 	#empty method body
 	pass
 else:
@@ -24,6 +24,19 @@ else:
 	print fun()
 	#print function address
 	print fun
+
+#inline if statement true_cond if condition else false_cond
+end = True if marek == False else False
+
+#go from 1 to 13 in increments of 2 and print with a tab - one line result
+for i in range(1,14,2):
+    if i == 12:
+        #skip this iterations and move to the next one
+        continue
+    print(i,end='\t')
+    if i == 14:
+        #stop the loop completely
+        break
 
 #multiline strings(need \)
 total = "marek " + \
@@ -85,7 +98,7 @@ print a,b,c
 	# Dictionary
 
 str = 'Hello World!'
-
+#string[start:end(not included):jump]
 print (str)          # Prints complete string
 print (str[0])       # Prints first character of the string
 print (str[2:5])     # Prints characters starting from 3rd to 5th
@@ -93,6 +106,7 @@ print (str[2:])      # Prints string starting from 3rd character
 print (str * 2)      # Prints string two times
 print (str + "TEST") # Prints concatenated string
 print (str[-4:-2])   # Print string counting backwards from the end
+print (str[::2])   # Print every second letter
 
 #find out if substring is in string
 print("Hell" in str)
