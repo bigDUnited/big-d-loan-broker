@@ -33,7 +33,9 @@ def load_danskebank(message):
     res = json.loads(message)
     res["interest"] = float(res["interestRate"])
     del res["interestRate"]
-    res["ssn"] = "{}-{}".format(res["ssn"][:6], res["ssn"][6:])
+    res["ssn"] = str(res["ssn"])
+    newssn = "{}-{}".format(res["ssn"][:6], res["ssn"][6:])
+    res["ssn"] = newssn
     return res
 
 def dump_nordea(message):

@@ -12,9 +12,11 @@ import requests
 def callback(ch, method, properties, body):
     m = loads(body)
     req = "http://127.0.0.1:3001/score/{0}".format(m['score'])
+    print "requesting bank credit score service for score:", m['score']
     response = requests.get(req)
     banks = response.json()
     m['banks'] = banks
+    print "received banks:", banks
     publish_to_q("localhost", RECIPIENT_LIST_QUEUE, dumps(m), properties)
 
 

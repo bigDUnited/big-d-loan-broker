@@ -25,10 +25,7 @@ def callback(ch, method, properties, body):
     res = loads(body)
     del res["banks"]
     final_message = dumps(res)
-    publish_to_q("datdb.cphbusiness.dk",
-                 NORMALIZER_QUEUE,
-                 body,
-                 properties)
+    print "received message", body, "sending to", len(m["banks"])
     for t in TRANSLATORS:
         if t in m["banks"]:
             publish_to_q("localhost", t, final_message, properties)    

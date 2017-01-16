@@ -10,7 +10,9 @@ from json import loads, dumps
 
 def callback(ch, method, properties, body):
     m = loads(body)
+    print "getting credit score for:", body
     score = getCreditScore(m['ssn'])
+    print "got credit score:", score
     m['score'] = str(score)
     publish_to_q("localhost",
                  BANK_ENRICHER_QUEUE,
