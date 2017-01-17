@@ -85,6 +85,8 @@ that take a message and return a translated message.
 translator_types = {
     "danskebank" : {"dump": dump_danskebank, "load": load_danskebank},
     "nordea" : {"dump": dump_nordea, "load": load_nordea},
+    "nytkredit" : {"dump": dump_danskebank, "load": load_danskebank},
+    "bdo" : {"dump": dump_danskebank, "load": load_danskebank},
 }
 
 def dumps(message, type):

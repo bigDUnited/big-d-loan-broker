@@ -10,8 +10,7 @@ import translators as tr
 
 
 def callback(ch, method, properties, body):
-    print "raw bank properties:", properties
-    print "raw bank body:", body
+    print "raw bank response body:", body
     mtype = properties.correlation_id[8:]
     mid = properties.correlation_id[:8]
     properties.correlation_id = mid

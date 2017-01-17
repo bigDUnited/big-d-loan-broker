@@ -12,6 +12,7 @@ def callback(ch, method, properties, body):
     m = loads(body)
     result = tr.dumps(m, "nordea")
     properties.correlation_id += "nordea"
+    properties.reply_to = NORMALIZER_QUEUE
     print "nordea bank translator: ", result
     publish_to_bank(
         "datdb.cphbusiness.dk",

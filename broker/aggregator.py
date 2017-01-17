@@ -9,8 +9,10 @@ from json import loads
 import translators as tr
 
 type_to_bank = {
-    "danskebank":"danskebank_translator_queue",
-    "nordea":"nordea_translator_queue",
+    "danskebank": DANSKEBANK_TRANSLATOR_QUEUE,
+    "nordea": NORDEA_TRANSLATOR_QUEUE,
+    "nytkredit": NYTKREDIT_TRANSLATOR_QUEUE,
+    "bdo": BDO_TRANSLATOR_QUEUE,
 }
 
 awaiting = {}
@@ -32,7 +34,7 @@ def callback(ch, method, properties, body):
             for k, v in entry.iteritems():
                 result["ssn"] = v["ssn"]
                 result["rates"][v["type"]] = v["interest"]
-            print result
+            print "end result:", result
 
 
 consumer = Consumer("localhost", AGGREGATOR_QUEUE)

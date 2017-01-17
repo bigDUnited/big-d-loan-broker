@@ -4,6 +4,7 @@ Dummy publisher.
 from broker.rmqPublish import publish_to_q
 from broker.queue_names import NORDEA_TRANSLATOR_QUEUE
 from broker.queue_names import DANSKEBANK_TRANSLATOR_QUEUE
+from broker.queue_names import NYTKREDIT_TRANSLATOR_QUEUE
 from broker.queue_names import NORMALIZER_QUEUE
 from broker.queue_names import AGGREGATOR_QUEUE
 import json
@@ -25,11 +26,13 @@ message = {
 }
 
 await_message = {
-    "banks": [u'danskebank_translator_queue',
-              u'nordea_translator_queue'],
+    # "banks": [u'danskebank_translator_queue',
+    #           u'nordea_translator_queue'],
+    "banks": [u'nytkredit_translator_queue', ],
     "await_id": "12399942",
     "type": "await",
 }
+
 publish_to_q(
     'localhost',
     AGGREGATOR_QUEUE,
@@ -38,18 +41,27 @@ publish_to_q(
         correlation_id="12399941",
     ))
 
-publish_to_q(
-    'localhost',
-    NORDEA_TRANSLATOR_QUEUE,
-    json.dumps(message),
-    pika.BasicProperties(
-        correlation_id="12399942",
-        reply_to=NORMALIZER_QUEUE,
-    ))
+# publish_to_q(
+#     'localhost',
+#     NORDEA_TRANSLATOR_QUEUE,
+#     json.dumps(message),
+#     pika.BasicProperties(
+#         correlation_id="12399942",
+#         reply_to=NORMALIZER_QUEUE,
+#     ))
+
+# publish_to_q(
+#     'localhost',
+#     DANSKEBANK_TRANSLATOR_QUEUE,
+#     json.dumps(message),
+#     pika.BasicProperties(
+#         correlation_id="12399942",
+#         reply_to=NORMALIZER_QUEUE,
+#     ))
 
 publish_to_q(
     'localhost',
-    DANSKEBANK_TRANSLATOR_QUEUE,
+    NYTKREDIT_TRANSLATOR_QUEUE,
     json.dumps(message),
     pika.BasicProperties(
         correlation_id="12399942",
