@@ -9,14 +9,16 @@ from rmqConsume import Consumer
 from rmqPublish import publish_to_q
 from queue_names import *
 from json import loads, dumps
+from creditapi import getBanks
 
 
 def callback(ch, method, properties, body):
     m = loads(body)
-    req = "http://127.0.0.1:3001/score/{0}".format(m['score'])
-    print "requesting bank credit score service for score:", m['score']
-    response = requests.get(req)
-    banks = response.json()
+    # req = "http://127.0.0.1:3001/score/{0}".format(m['score'])
+    # print "requesting bank credit score service for score:", m['score']
+    # response = requests.get(req)
+    # banks = response.json()
+    banks = getBanks(int(m['score']))
     m['banks'] = banks
     #prepare aggregator for new message
     await_message = {

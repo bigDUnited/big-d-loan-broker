@@ -2,8 +2,10 @@
 #Run the entire project.
 p=$(ps aux | grep rulebase | head -n 1 | cut -f 4 -d' ')
 kill -9 $p
+
 proc=()
-python broker/rulebase.py &
+
+java -jar rulebase.jar &
 
 python broker/creditscore_enricher.py &
 proc+=("$!")
